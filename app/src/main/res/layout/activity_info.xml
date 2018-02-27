@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.micste.slmvp.info.InfoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:id="@+id/separator"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_below="@id/my_toolbar"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimaryLighter">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_navigation"
+        style="?android:buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/separator"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/btn_subway"
+            style="?android:buttonBarButtonStyle"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@color/colorLightBlue"
+            android:layout_height="60dp"
+            android:text="@string/contentdescribe_metro"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:contentDescription="@string/contentdescribe_metro"/>
+
+        <Button
+            android:id="@+id/btn_train"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/contentdescribe_train"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:contentDescription="@string/contentdescribe_train"/>
+
+        <Button
+            android:id="@+id/btn_bus"
+            style="?android:buttonBarButtonStyle"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@null"
+            android:text="@string/contentdescribe_bus"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:layout_height="60dp"
+            android:contentDescription="@string/contentdescribe_bus"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/last_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_below="@id/category_navigation" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_subway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_update"
+        android:listSelector="@android:color/transparent">
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_trains"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_update"
+        android:listSelector="@android:color/transparent"
+        android:visibility="gone">
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_buses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_update"
+        android:listSelector="@android:color/transparent"
+        android:visibility="gone">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/info_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:text="@string/error_no_departures"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:padding="10dp"/>
+    <ProgressBar
+        android:id="@+id/info_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>
